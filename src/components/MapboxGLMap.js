@@ -6,6 +6,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker"; // Load worker code separately with worker-loader
 import LocationMenu from "./LocationMenu";
 import DrawComponent from "./DrawComponent";
+import * as turf from '@turf/turf';
+import AdresseBoks from "./AdresseBoks";
+
 mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
 
 const styles = {
@@ -24,7 +27,7 @@ const MapboxGLMap = () => {
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+        style: "mapbox://styles/mapbox/satellite-v9", // stylesheet location
         center: [10.408773, 63.422091],
         zoom: 15,
       });
@@ -45,6 +48,7 @@ const MapboxGLMap = () => {
       <LocationMenu mapConnection={map}></LocationMenu>
       <DrawComponent mapConnection={map}>
       </DrawComponent>
+      <AdresseBoks mapConnection={map} />
       <div ref={(el) => (mapContainer.current = el)} style={styles} />;
     </>
   );
