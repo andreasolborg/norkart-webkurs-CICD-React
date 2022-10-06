@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import MapboxGLMap from "./components/MapboxGLMap";
+import DrawComponent from "./components/DrawComponent";
 
 const styles = {
   overflow: "hidden",
@@ -9,8 +10,8 @@ const styles = {
 function App() {
   return (
     <div style={styles}>
-    hallaballa was here
       <Header />
+
       <MapboxGLMap />
     </div>
   );
