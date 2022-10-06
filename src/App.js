@@ -9,7 +9,7 @@ const styles = {
 function App() {
   return (
     <div style={styles}>
-    kari was here
+    hallaballa was here
       <Header />
       <MapboxGLMap />
     </div>
